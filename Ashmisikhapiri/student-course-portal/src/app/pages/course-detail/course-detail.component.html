@@ -1,0 +1,38 @@
+<div class="page-container" @fadeIn>
+  <mat-card class="detail-card" *ngIf="course">
+    <div class="detail-banner">
+      <mat-icon>{{ courseIcon }}</mat-icon>
+    </div>
+    <mat-card-header>
+      <h2 class="page-title">{{ course.name }}</h2>
+      <mat-card-subtitle>{{ course.code }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="detail-grid">
+        <div class="detail-item">
+          <span class="detail-label">Course Code</span>
+          <span class="detail-value">{{ course.code }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Credits</span>
+          <span class="detail-value">{{ course.credits }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Instructor</span>
+          <span class="detail-value">{{ instructor }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Grade Status</span>
+          <mat-chip [class]="'status-' + course.gradeStatus">{{ course.gradeStatus }}</mat-chip>
+        </div>
+      </div>
+      <div class="progress-block">
+        <div class="progress-label"><span>Course Progress</span><strong>{{ progress }}%</strong></div>
+        <mat-progress-bar mode="determinate" [value]="progress" color="primary"></mat-progress-bar>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <a mat-flat-button color="primary" routerLink="/courses"><mat-icon>arrow_back</mat-icon> Back to Courses</a>
+    </mat-card-actions>
+  </mat-card>
+</div>

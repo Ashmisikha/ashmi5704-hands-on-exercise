@@ -1,0 +1,7 @@
+.search-card { margin-bottom:1.25rem; }
+.loading-state { display:flex; align-items:center; gap:1rem; padding:2rem; justify-content:center; }
+.error-card mat-card-content { display:flex; align-items:center; gap:.75rem; color:#991b1b; font-weight:600; background:#fee2e2; border-radius:var(--radius); }
+.selected-card mat-card-content { display:flex; align-items:center; gap:.5rem; background:#eff6ff; color:#1e40af; font-weight:500; margin-top:1rem; }
+.empty-card { text-align:center; padding:2rem; }
+.empty-card mat-icon { font-size:3rem; width:3rem; height:3rem; color:var(--text-muted); }
+.label-bold { font-weight:700; color:var(--text-muted); }

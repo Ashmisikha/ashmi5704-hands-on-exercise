@@ -1,0 +1,111 @@
+<div class="page-container dashboard" @fadeIn>
+  <section class="welcome-banner mat-elevation-z2">
+    <div class="welcome-text">
+      <p class="welcome-greeting">Welcome back,</p>
+      <h1 class="page-title">{{ studentName }}</h1>
+      <p class="page-subtitle">{{ portalName }} — Track your courses, grades, and enrollments.</p>
+      <div class="welcome-actions">
+        <button mat-flat-button color="primary" class="action-btn" [disabled]="!isPortalActive" (click)="onEnrollClick()">
+          <mat-icon>how_to_reg</mat-icon> Enroll Now
+        </button>
+        <a mat-stroked-button color="primary" class="action-btn" routerLink="/courses">
+          <mat-icon>menu_book</mat-icon> Browse Courses
+        </a>
+      </div>
+      <mat-chip-set *ngIf="message" class="success-chip">
+        <mat-chip highlighted>{{ message }}</mat-chip>
+      </mat-chip-set>
+    </div>
+    <div class="welcome-illustration">
+      <mat-icon>auto_stories</mat-icon>
+    </div>
+  </section>
+
+  <div class="stat-grid">
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <div class="stat-icon courses"><mat-icon>library_books</mat-icon></div>
+        <p class="stat-label">Courses Available</p>
+        <h2 class="stat-value">{{ coursesAvailable }}</h2>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="stat-card">
+      <mat-card-content>
+        <div class="stat-icon enrolled"><mat-icon>check_circle</mat-icon></div>
+        <p class="stat-label">Enrolled</p>
+        <h2 class="stat-value">{{ enrolled }}</h2>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="stat-card gpa-card">
+      <mat-card-content>
+        <div class="stat-icon gpa"><mat-icon>star</mat-icon></div>
+        <p class="stat-label">GPA</p>
+        <h2 class="stat-value">{{ gpa }}</h2>
+        <mat-progress-bar mode="determinate" [value]="gpa * 25" color="primary"></mat-progress-bar>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="dashboard-grid">
+    <mat-card class="panel-card">
+      <mat-card-header>
+        <mat-icon mat-card-avatar class="panel-icon">notifications_active</mat-icon>
+        <mat-card-title>Recent Notifications</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let n of notifications">
+            <mat-icon matListItemIcon [class]="'notif-' + n.type">{{ n.icon }}</mat-icon>
+            <span matListItemTitle>{{ n.text }}</span>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="panel-card">
+      <mat-card-header>
+        <mat-icon mat-card-avatar class="panel-icon">event</mat-icon>
+        <mat-card-title>Upcoming Deadlines</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="deadline-item" *ngFor="let d of deadlines">
+          <div class="deadline-date">{{ d.date }}</div>
+          <div>
+            <p class="deadline-course">{{ d.course }}</p>
+            <p class="deadline-task">{{ d.task }}</p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="panel-card quick-actions">
+      <mat-card-header>
+        <mat-icon mat-card-avatar class="panel-icon">bolt</mat-icon>
+        <mat-card-title>Quick Actions</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="action-grid">
+        <a mat-stroked-button routerLink="/courses"><mat-icon>search</mat-icon> Find Courses</a>
+        <a mat-stroked-button routerLink="/profile"><mat-icon>person</mat-icon> My Profile</a>
+        <a mat-stroked-button routerLink="/enroll"><mat-icon>edit_note</mat-icon> Enroll</a>
+        <a mat-stroked-button routerLink="/enroll/reactive"><mat-icon>dynamic_form</mat-icon> Reactive Form</a>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <mat-card class="search-card">
+    <mat-card-header>
+      <mat-card-title>Quick Search</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="outline" floatLabel="always">
+        <mat-label>Search courses</mat-label>
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput [(ngModel)]="searchTerm" placeholder="Type to search...">
+      </mat-form-field>
+      <!-- [property] is one-way from component to DOM, while [(ngModel)] is two-way between DOM and component. -->
+      <p class="search-result">Searching for: <strong>{{ searchTerm || 'all courses' }}</strong></p>
+    </mat-card-content>
+  </mat-card>
+
+  <app-course-summary-widget></app-course-summary-widget>
+</div>

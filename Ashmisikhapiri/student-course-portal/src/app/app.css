@@ -1,0 +1,21 @@
+.app-shell {
+  height: 100vh;
+  background: var(--bg);
+}
+
+.app-sidenav {
+  width: 280px;
+  border-right: 1px solid var(--border);
+  background: #fff;
+}
+
+.app-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1;
+  background: var(--gradient-subtle);
+}

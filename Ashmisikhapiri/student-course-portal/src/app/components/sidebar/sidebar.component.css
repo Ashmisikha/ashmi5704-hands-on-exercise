@@ -1,0 +1,8 @@
+.sidebar-brand { display:flex; align-items:center; gap:.75rem; padding:1.5rem 1.25rem; }
+.brand-icon { color:var(--primary); font-size:2rem; width:2rem; height:2rem; }
+.brand-title { font-weight:700; font-size:1rem; margin:0; }
+.brand-sub { font-size:.75rem; color:var(--text-muted); margin:.15rem 0 0; font-weight:500; }
+.nav-list a { border-radius:12px; margin:.25rem .75rem; width:calc(100% - 1.5rem); font-weight:500; }
+.nav-list a.active { background:linear-gradient(135deg,#eff6ff,#dbeafe); color:var(--primary); font-weight:600; }
+.nav-list a.active mat-icon { color:var(--primary); }
+.sidebar-footer { display:flex; align-items:center; gap:.5rem; padding:1rem 1.25rem; color:var(--text-muted); font-size:.8rem; font-weight:500; position:absolute; bottom:0; width:100%; }

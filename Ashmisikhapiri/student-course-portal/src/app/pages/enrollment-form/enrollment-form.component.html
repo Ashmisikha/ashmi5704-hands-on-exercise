@@ -1,0 +1,58 @@
+<div class="page-container" @fadeIn>
+  <div class="page-header">
+    <h2 class="page-title">Enrollment Request</h2>
+    <p class="page-subtitle">Fill in your details to request course enrollment.</p>
+  </div>
+
+  <mat-card class="form-card">
+    <mat-card-content>
+      <form #enrollForm="ngForm" (ngSubmit)="onSubmit(enrollForm)" class="enroll-form">
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Student Name</mat-label>
+          <input matInput name="studentName" [(ngModel)]="model.studentName" #nameCtrl="ngModel" required minlength="3" placeholder="Enter your full name">
+          <mat-error *ngIf="nameCtrl.touched && nameCtrl.errors?.['required']">Name is required</mat-error>
+          <mat-error *ngIf="nameCtrl.touched && nameCtrl.errors?.['minlength']">Name must be at least 3 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Student Email</mat-label>
+          <input matInput type="email" name="studentEmail" [(ngModel)]="model.studentEmail" #emailCtrl="ngModel" required email placeholder="you@example.com">
+          <mat-error *ngIf="emailCtrl.touched && emailCtrl.errors?.['required']">Email is required</mat-error>
+          <mat-error *ngIf="emailCtrl.touched && emailCtrl.errors?.['email']">Invalid email</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Course ID</mat-label>
+          <input matInput type="number" name="courseId" [(ngModel)]="model.courseId" #courseCtrl="ngModel" required placeholder="e.g. 101">
+          <mat-error *ngIf="courseCtrl.touched && courseCtrl.errors?.['required']">Course ID is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Preferred Semester</mat-label>
+          <mat-select name="preferredSemester" [(ngModel)]="model.preferredSemester">
+            <mat-option value="Odd">Odd</mat-option>
+            <mat-option value="Even">Even</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-checkbox name="agreeToTerms" [(ngModel)]="model.agreeToTerms" #termsCtrl="ngModel" required color="primary">
+          I agree to the terms and conditions
+        </mat-checkbox>
+
+        <div class="form-actions">
+          <button mat-flat-button color="primary" type="submit" [disabled]="enrollForm.invalid">
+            <mat-icon>send</mat-icon> Submit
+          </button>
+          <button mat-stroked-button type="button" (click)="enrollForm.resetForm()">
+            <mat-icon>refresh</mat-icon> Reset
+          </button>
+        </div>
+
+        <div class="success-banner" *ngIf="submitted">
+          <mat-icon>check_circle</mat-icon>
+          Enrollment request submitted successfully!
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

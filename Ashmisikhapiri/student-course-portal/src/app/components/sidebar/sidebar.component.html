@@ -1,0 +1,35 @@
+<div class="sidebar-brand">
+  <mat-icon class="brand-icon">school</mat-icon>
+  <div>
+    <p class="brand-title">Course Portal</p>
+    <p class="brand-sub">Digital Nurture 5.0</p>
+  </div>
+</div>
+
+<mat-divider></mat-divider>
+
+<mat-nav-list class="nav-list">
+  <a mat-list-item routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="onNav()">
+    <mat-icon matListItemIcon>dashboard</mat-icon>
+    <span matListItemTitle>Dashboard</span>
+  </a>
+  <a mat-list-item routerLink="/courses" routerLinkActive="active" (click)="onNav()">
+    <mat-icon matListItemIcon>menu_book</mat-icon>
+    <span matListItemTitle>Courses</span>
+  </a>
+  <a mat-list-item routerLink="/profile" routerLinkActive="active" (click)="onNav()">
+    <mat-icon matListItemIcon>person</mat-icon>
+    <span matListItemTitle>Profile</span>
+  </a>
+  <a mat-list-item routerLink="/enroll" routerLinkActive="active" (click)="onNav()">
+    <mat-icon matListItemIcon>how_to_reg</mat-icon>
+    <span matListItemTitle>Enroll</span>
+  </a>
+</mat-nav-list>
+
+<mat-divider></mat-divider>
+
+<div class="sidebar-footer">
+  <mat-icon>info</mat-icon>
+  <span>Angular v20 Hands-On</span>
+</div>

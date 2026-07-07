@@ -1,0 +1,13 @@
+.detail-card { overflow:hidden; }
+.detail-banner { background:var(--gradient-primary); display:flex; justify-content:center; padding:2rem; margin:-16px -16px 0; }
+.detail-banner mat-icon { font-size:4rem; width:4rem; height:4rem; color:#fff; }
+.detail-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; margin:1.25rem 0; }
+.detail-item { background:#f8fafc; padding:1.25rem; border-radius:12px; border:1px solid var(--border); }
+.detail-label { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted); display:block; margin-bottom:.35rem; }
+.detail-value { font-size:1.15rem; font-weight:700; color:var(--text); }
+.progress-block { margin-top:1rem; }
+.progress-label { display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:.5rem; font-weight:500; color:var(--text-muted); }
+.progress-label strong { font-weight:800; color:var(--text); }
+.status-passed { background:#dcfce7 !important; color:#166534 !important; font-weight:600 !important; }
+.status-failed { background:#fee2e2 !important; color:#991b1b !important; font-weight:600 !important; }
+.status-pending { background:#f1f5f9 !important; color:#475569 !important; font-weight:600 !important; }

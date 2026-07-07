@@ -1,0 +1,65 @@
+<div class="page-container" @fadeIn>
+  <div class="page-header">
+    <h2 class="page-title">Reactive Enrollment</h2>
+    <p class="page-subtitle">Advanced form with custom validators and dynamic fields.</p>
+  </div>
+
+  <mat-card class="form-card">
+    <mat-card-content>
+      <form [formGroup]="enrollForm" (ngSubmit)="onSubmit()" class="enroll-form">
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Student Name</mat-label>
+          <input matInput formControlName="studentName" placeholder="Enter your full name">
+          <mat-error *ngIf="enrollForm.get('studentName')?.hasError('required')">Name is required</mat-error>
+          <mat-error *ngIf="enrollForm.get('studentName')?.hasError('minlength')">Minimum 3 characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Student Email</mat-label>
+          <input matInput formControlName="studentEmail" placeholder="you@example.com">
+          <mat-error *ngIf="enrollForm.get('studentEmail')?.hasError('emailTaken')">Email taken.</mat-error>
+          <mat-error *ngIf="enrollForm.get('studentEmail')?.hasError('email')">Invalid email</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Course ID</mat-label>
+          <input matInput formControlName="courseId" placeholder="e.g. 101">
+          <mat-error *ngIf="enrollForm.get('courseId')?.errors?.['noCourseCode']">Course code starting with XX is not allowed.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Preferred Semester</mat-label>
+          <mat-select formControlName="preferredSemester">
+            <mat-option value="Odd">Odd</mat-option>
+            <mat-option value="Even">Even</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-checkbox formControlName="agreeToTerms" color="primary">I agree to the terms and conditions</mat-checkbox>
+
+        <mat-expansion-panel class="dynamic-panel">
+          <mat-expansion-panel-header>
+            <mat-panel-title><mat-icon>add</mat-icon> Additional Courses</mat-panel-title>
+            <mat-panel-description>Add more courses dynamically</mat-panel-description>
+          </mat-expansion-panel-header>
+          <button mat-stroked-button type="button" (click)="addAnotherCourse()" class="add-btn">
+            <mat-icon>add_circle</mat-icon> Add Another Course
+          </button>
+          <div class="dynamic-row" *ngFor="let ctrl of additionalCourses.controls; let i=index">
+            <mat-form-field appearance="outline" floatLabel="always" class="dynamic-field">
+              <mat-label>Course {{ i + 1 }}</mat-label>
+              <input matInput [formControl]="$any(ctrl)" placeholder="Additional course">
+            </mat-form-field>
+            <button mat-icon-button color="warn" type="button" (click)="removeCourse(i)" aria-label="Remove">
+              <mat-icon>remove_circle</mat-icon>
+            </button>
+          </div>
+        </mat-expansion-panel>
+
+        <button mat-flat-button color="primary" type="submit" [disabled]="enrollForm.invalid" class="submit-btn">
+          <mat-icon>send</mat-icon> Submit
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

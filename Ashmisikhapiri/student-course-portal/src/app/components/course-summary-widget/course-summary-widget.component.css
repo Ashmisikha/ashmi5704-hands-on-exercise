@@ -1,0 +1,8 @@
+.widget-card { transition:transform .25s ease, box-shadow .25s ease; }
+.widget-card:hover { transform:translateY(-3px); box-shadow:var(--shadow-md) !important; }
+.widget-row { display:flex; align-items:center; gap:1rem; }
+.widget-icon { width:52px; height:52px; border-radius:14px; background:var(--gradient-primary); display:flex; align-items:center; justify-content:center; }
+.widget-icon mat-icon { color:#fff; }
+.widget-label { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted); margin:0; }
+.widget-value { font-size:2rem; font-weight:800; color:var(--primary); margin:.15rem 0; }
+.widget-hint { font-size:.8rem; color:var(--text-muted); font-weight:400; margin:0; }

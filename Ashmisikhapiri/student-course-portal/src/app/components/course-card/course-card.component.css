@@ -1,0 +1,19 @@
+.course-card { border-left:4px solid; cursor:pointer; overflow:hidden; transition:transform .25s ease, box-shadow .25s ease; }
+.course-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg) !important; }
+.card--enrolled { background:linear-gradient(180deg,#f0fdf4,#fff) !important; }
+.card--full { outline:2px solid #f59e0b; }
+.card-icon-header { display:flex; align-items:center; justify-content:center; padding:1.5rem; margin:-16px -16px 0; }
+.card-icon-header mat-icon { font-size:2.5rem; width:2.5rem; height:2.5rem; color:#fff; }
+h3[mat-card-title] { font-weight:700 !important; font-size:1.1rem !important; }
+.meta-row { display:flex; flex-direction:column; gap:.35rem; margin:.75rem 0; }
+.meta-row span { display:flex; align-items:center; gap:.35rem; font-size:.85rem; color:var(--text-muted); font-weight:500; }
+.meta-row mat-icon { font-size:1rem; width:1rem; height:1rem; color:var(--primary); }
+.status-passed { background:#dcfce7 !important; color:#166534 !important; font-weight:600 !important; }
+.status-failed { background:#fee2e2 !important; color:#991b1b !important; font-weight:600 !important; }
+.status-pending { background:#f1f5f9 !important; color:#475569 !important; font-weight:600 !important; }
+.progress-section { margin-top:.75rem; }
+.progress-label { display:flex; justify-content:space-between; font-size:.8rem; margin-bottom:.35rem; color:var(--text-muted); font-weight:500; }
+.progress-label strong { color:var(--text); font-weight:700; }
+.details-panel { margin-top:.75rem; box-shadow:none !important; border:1px solid var(--border); border-radius:12px !important; }
+mat-card-actions { padding:.5rem 1rem 1rem !important; gap:.5rem; }
+mat-card-actions button { border-radius:var(--radius-btn) !important; font-weight:600 !important; }

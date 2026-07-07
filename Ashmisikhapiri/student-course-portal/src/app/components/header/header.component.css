@@ -1,0 +1,10 @@
+.app-toolbar { background:#fff; border-bottom:1px solid var(--border); padding:0 1rem; height:64px; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-sm); }
+.toolbar-brand { display:flex; align-items:center; gap:.5rem; margin-left:.5rem; }
+.toolbar-brand mat-icon { color:var(--primary); }
+.toolbar-title { font-weight:700; font-size:1.05rem; color:var(--text); letter-spacing:-.01em; }
+.toolbar-spacer { flex:1; }
+.toolbar-nav { display:flex; align-items:center; gap:.25rem; }
+.toolbar-nav a { font-weight:500; border-radius:var(--radius-btn); }
+.enroll-btn { border-radius:var(--radius-btn) !important; font-weight:600 !important; margin-left:.5rem; }
+.menu-btn { display:none; }
+@media(max-width:960px){ .toolbar-nav{ display:none; } .menu-btn{ display:inline-flex; } }

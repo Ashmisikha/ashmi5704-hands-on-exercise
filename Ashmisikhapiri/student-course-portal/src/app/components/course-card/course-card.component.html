@@ -1,0 +1,61 @@
+<mat-card
+  class="course-card"
+  [ngClass]="cardClasses"
+  [ngStyle]="{ 'border-left-color': borderColor }"
+  appHighlight="lightblue"
+  (click)="openDetails()"
+  @cardHover>
+
+  <div class="card-icon-header" [style.background]="'linear-gradient(135deg, var(--primary), var(--accent))'">
+    <mat-icon>{{ courseIcon }}</mat-icon>
+  </div>
+
+  <mat-card-header>
+    <h3 mat-card-title>{{ course.name }}</h3>
+    <mat-card-subtitle>{{ course.code }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="meta-row">
+      <span><mat-icon>person</mat-icon> {{ instructor }}</span>
+      <span><mat-icon>school</mat-icon> {{ course.credits | creditLabel }}</span>
+    </div>
+
+    <mat-chip-set>
+      <mat-chip [class]="'status-' + course.gradeStatus">{{ course.gradeStatus }}</mat-chip>
+      <mat-chip *ngIf="enrolledIds.includes(course.id)" highlighted>Enrolled</mat-chip>
+    </mat-chip-set>
+
+    <div class="progress-section">
+      <div class="progress-label">
+        <span>Progress</span>
+        <strong>{{ progress }}%</strong>
+      </div>
+      <mat-progress-bar mode="determinate" [value]="progress" [color]="course.gradeStatus === 'passed' ? 'primary' : course.gradeStatus === 'failed' ? 'warn' : 'accent'"></mat-progress-bar>
+    </div>
+
+    <mat-expansion-panel *ngIf="isExpanded" class="details-panel" (click)="$event.stopPropagation()">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Course Details</mat-panel-title>
+      </mat-expansion-panel-header>
+      <p><strong>Course ID:</strong> #{{ course.id }}</p>
+      <p><strong>Credits:</strong> {{ course.credits | creditLabel }}</p>
+      <p><strong>Status:</strong> {{ course.gradeStatus }}</p>
+    </mat-expansion-panel>
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button mat-stroked-button type="button" (click)="toggleDetails(); $event.stopPropagation()">
+      <mat-icon>{{ isExpanded ? 'expand_less' : 'expand_more' }}</mat-icon>
+      {{ isExpanded ? 'Hide Details' : 'Show Details' }}
+    </button>
+    <button
+      mat-flat-button
+      type="button"
+      [color]="enrolledIds.includes(course.id) ? undefined : 'primary'"
+      (click)="requestEnroll($event)">
+      <mat-icon>{{ enrolledIds.includes(course.id) ? 'remove_circle' : 'add_circle' }}</mat-icon>
+      {{ enrolledIds.includes(course.id) ? 'Unenroll' : 'Enroll' }}
+    </button>
+  </mat-card-actions>
+</mat-card>

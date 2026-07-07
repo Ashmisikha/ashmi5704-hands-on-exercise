@@ -1,0 +1,56 @@
+<div class="page-container" @fadeIn>
+  <div class="page-header">
+    <h2 class="page-title">Student Profile</h2>
+    <p class="page-subtitle">Your enrolled courses and notifications.</p>
+  </div>
+
+  <div class="profile-grid">
+    <mat-card class="profile-summary">
+      <mat-card-content>
+        <div class="avatar"><mat-icon>account_circle</mat-icon></div>
+        <h3>Ashmi S.</h3>
+        <p>ashmi@example.com</p>
+        <mat-chip-set>
+          <mat-chip highlighted>Active Student</mat-chip>
+          <mat-chip>GPA 3.8</mat-chip>
+        </mat-chip-set>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="enrolled-card">
+      <mat-card-header>
+        <mat-icon mat-card-avatar class="panel-icon">menu_book</mat-icon>
+        <mat-card-title>Enrolled Courses</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <table mat-table [dataSource]="(enrolledCourses$ | async) ?? []" class="courses-table" *ngIf="(enrolledCourses$ | async) as courses">
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Course</th>
+            <td mat-cell *matCellDef="let c"><strong>{{ c.name }}</strong></td>
+          </ng-container>
+          <ng-container matColumnDef="code">
+            <th mat-header-cell *matHeaderCellDef>Code</th>
+            <td mat-cell *matCellDef="let c">{{ c.code }}</td>
+          </ng-container>
+          <ng-container matColumnDef="credits">
+            <th mat-header-cell *matHeaderCellDef>Credits</th>
+            <td mat-cell *matCellDef="let c">{{ c.credits }}</td>
+          </ng-container>
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let c">
+              <mat-chip [class]="'status-' + c.gradeStatus">{{ c.gradeStatus }}</mat-chip>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr class="empty-row" *matNoDataRow>
+            <td colspan="4">No enrolled courses yet.</td>
+          </tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <app-notification></app-notification>
+</div>

@@ -1,0 +1,37 @@
+.dashboard { display:flex; flex-direction:column; gap:1.5rem; }
+.welcome-banner { display:flex; justify-content:space-between; align-items:center; padding:2rem; border-radius:var(--radius); background:var(--gradient-primary); color:#fff; overflow:hidden; }
+.welcome-greeting { font-weight:500; opacity:.9; margin:0 0 .25rem; font-size:.95rem; }
+.welcome-banner .page-title { color:#fff; font-size:2rem; font-weight:800; }
+.welcome-banner .page-subtitle { color:rgba(255,255,255,.85); font-weight:400; margin-top:.5rem; }
+.welcome-actions { display:flex; gap:.75rem; margin-top:1.25rem; flex-wrap:wrap; }
+.action-btn { border-radius:var(--radius-btn) !important; font-weight:600 !important; }
+.welcome-illustration mat-icon { font-size:6rem; width:6rem; height:6rem; opacity:.25; }
+.success-chip { margin-top:1rem; }
+.stat-card { transition:transform .25s ease, box-shadow .25s ease; }
+.stat-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-md) !important; }
+.stat-card mat-card-content { display:flex; flex-direction:column; gap:.35rem; padding:1.25rem !important; }
+.stat-icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:.25rem; }
+.stat-icon mat-icon { color:#fff; }
+.stat-icon.courses { background:var(--primary); }
+.stat-icon.enrolled { background:#16a34a; }
+.stat-icon.gpa { background:#7c3aed; }
+.stat-label { font-size:.8rem; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--text-muted); margin:0; }
+.stat-value { font-size:2rem; font-weight:800; color:var(--text); margin:0; }
+.dashboard-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.25rem; }
+.panel-card { transition:box-shadow .25s ease; }
+.panel-card:hover { box-shadow:var(--shadow-md) !important; }
+.panel-icon { background:var(--gradient-primary) !important; color:#fff !important; display:flex !important; align-items:center; justify-content:center; border-radius:12px !important; }
+.deadline-item { display:flex; gap:1rem; padding:.75rem 0; border-bottom:1px solid var(--border); }
+.deadline-item:last-child { border:none; }
+.deadline-date { font-weight:700; color:var(--primary); min-width:50px; }
+.deadline-course { font-weight:600; margin:0; font-size:.9rem; }
+.deadline-task { color:var(--text-muted); margin:.15rem 0 0; font-size:.8rem; }
+.action-grid { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; }
+.action-grid a { border-radius:var(--radius-btn) !important; font-weight:500 !important; }
+.notif-warning { color:#f59e0b; }
+.notif-success { color:#16a34a; }
+.notif-info { color:var(--primary); }
+.search-card mat-card-content { padding-top:.5rem !important; }
+.search-result { margin-top:.5rem; color:var(--text-muted); font-weight:400; }
+.search-result strong { color:var(--text); font-weight:700; }
+@media(max-width:768px){ .welcome-banner{ flex-direction:column; text-align:center; } .welcome-illustration{ display:none; } .welcome-actions{ justify-content:center; } }

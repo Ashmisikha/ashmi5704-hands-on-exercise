@@ -1,0 +1,15 @@
+.profile-grid { display:grid; grid-template-columns:280px 1fr; gap:1.25rem; margin-bottom:1.25rem; }
+.profile-summary { text-align:center; }
+.profile-summary mat-card-content { padding:2rem 1.5rem !important; }
+.avatar mat-icon { font-size:4rem; width:4rem; height:4rem; color:var(--primary); }
+.profile-summary h3 { font-weight:700; margin:.5rem 0 .25rem; }
+.profile-summary p { color:var(--text-muted); font-weight:400; margin:0 0 1rem; }
+.courses-table { width:100%; }
+.courses-table th { font-weight:700; color:var(--text-muted); font-size:.8rem; text-transform:uppercase; }
+.courses-table td { font-weight:500; }
+.status-passed { background:#dcfce7 !important; color:#166534 !important; }
+.status-failed { background:#fee2e2 !important; color:#991b1b !important; }
+.status-pending { background:#f1f5f9 !important; color:#475569 !important; }
+.empty-row td { text-align:center; color:var(--text-muted); padding:2rem; font-weight:500; }
+.panel-icon { background:var(--gradient-primary) !important; color:#fff !important; display:flex !important; align-items:center; justify-content:center; border-radius:12px !important; }
+@media(max-width:768px){ .profile-grid{ grid-template-columns:1fr; } }

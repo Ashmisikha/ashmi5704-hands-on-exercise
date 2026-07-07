@@ -1,0 +1,14 @@
+{
+  "courses": [
+    { "id": 1, "name": "Angular Fundamentals", "code": "ANG101", "credits": 3, "gradeStatus": "passed", "instructor": "Dr. Sarah Chen" },
+    { "id": 2, "name": "Data Structures", "code": "CS201", "credits": 4, "gradeStatus": "pending", "instructor": "Prof. James Miller" },
+    { "id": 3, "name": "Database Systems", "code": "DB301", "credits": 3, "gradeStatus": "failed", "instructor": "Dr. Emily Watson" },
+    { "id": 4, "name": "Operating Systems", "code": "OS401", "credits": 4, "gradeStatus": "pending", "instructor": "Prof. Robert Kim" },
+    { "id": 5, "name": "Computer Networks", "code": "CN501", "credits": 3, "gradeStatus": "passed", "instructor": "Dr. Lisa Park" }
+  ],
+  "students": [
+    { "id": 1, "name": "Ashmi", "email": "ashmi@example.com", "courseId": 1 },
+    { "id": 2, "name": "Nurture", "email": "student@example.com", "courseId": 2 }
+  ],
+  "enrollments": []
+}

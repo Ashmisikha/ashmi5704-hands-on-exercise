@@ -1,0 +1,5 @@
+.not-found { display:flex; justify-content:center; align-items:center; min-height:60vh; }
+.not-found-card { text-align:center; padding:2rem; max-width:420px; }
+.not-found-icon { font-size:4rem; width:4rem; height:4rem; color:var(--accent); margin-bottom:1rem; }
+.not-found-card .page-title { font-size:3rem; color:var(--text-muted); }
+.not-found-card a { margin-top:1.5rem; border-radius:var(--radius-btn) !important; font-weight:600 !important; }

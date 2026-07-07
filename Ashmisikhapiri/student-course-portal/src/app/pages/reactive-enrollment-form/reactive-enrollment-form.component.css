@@ -1,0 +1,7 @@
+.form-card { max-width:560px; }
+.enroll-form { display:flex; flex-direction:column; gap:.5rem; padding-top:.5rem; }
+.dynamic-panel { margin:.5rem 0; border-radius:12px !important; }
+.dynamic-row { display:flex; align-items:center; gap:.5rem; margin-top:.5rem; }
+.dynamic-field { flex:1; }
+.add-btn { margin-bottom:.75rem; border-radius:var(--radius-btn) !important; font-weight:600 !important; }
+.submit-btn { margin-top:1rem; border-radius:var(--radius-btn) !important; font-weight:600 !important; align-self:flex-start; }
